@@ -1,6 +1,4 @@
-// Taken from: https://github.com/T-vK/DynamicQuillTools
 
-/** @class Abstract class representing a tool for a Quill Editor toolbar. */
 class QuillToolbarItem {
     constructor(options) {
         const me = this
