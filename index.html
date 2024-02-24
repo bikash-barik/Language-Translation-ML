@@ -243,6 +243,10 @@
       }
 
       async function translate() {
+
+        const resultDiv = document.getElementById("result");
+        resultDiv.textContent = "";
+
         const sourceLanguageSelect = document.getElementById("sourceLanguage");
         const targetLanguageSelect = document.getElementById("targetLanguage");
         const sourceText = document.getElementById("sourceText").value;
