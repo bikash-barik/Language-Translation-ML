@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.translatediv{
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.translateheading{
+    margin: 10px;
+}
+
+.translateformdiv{
+    width: 50%;
+}
+
+.translateformdiv label{
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.translateformdiv select{
+    width: 40%;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.translateformdiv option{
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 0;
+}
+
+.translateinputdiv{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    /* margin-bottom: 30px; */
+}
+
+.teaxtareadiv label{
+    font-size: 1.5rem;
+    display: block;
+    text-align: start;
+}
+
+.teaxtareadiv textarea{
+    padding: 20px;
+    width: 100%;
+}
+
+.translatebtn{
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media screen and (max-width:600px) {
+    .translateformdiv{
+        width: 90%;
+    }
+
+    .translateinputdiv{
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .translateformdiv select{
+        width: 80%;
+    }
+}
