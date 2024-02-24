@@ -1,123 +1,335 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title> AI - Tanumanasa</title>
+    <meta charset="UTF-8">
+    <title>AI - Tanumanasa</title>
 
-  <link href="static//tanumanasa.jpg" rel="icon">
+    <link href="static//tanumanasa.jpg" rel="icon">
+    
+    <script type="application/javascript" src="./js/api.js"></script>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.min.js"></script>
-  <link href="//cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
 
-  <script type="application/javascript" src="./quill-auto-complete/docs/quill.mention.min.js"></script>
-  <link href="./quill-auto-complete/docs/quill.mention.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Noto Sans MeeteiMayek';
+            src: url('//cdn.jsdelivr.net/gh/virtualvinodh/aksharamukha-notomirror/NotoSansMeeteiMayek-Regular.ttf')
+        }
 
-  <script type="application/javascript" src="./js/api.js"></script>
-  <script src="./js/DynamicQuillTools.js"></script>
+        body {
+            align-content: center;
+            /* background-image: url('//get.wallhere.com/photo/drawing-white-black-hands-love-photography-feathers-blue-letter-writing-emotion-ink-skin-pens-calligraphy-quills-color-hand-shape-photograph-Sense-close-up-184682.jpg'); */
+            background-image: url('/static/drawing-white-black-hands-love-photography-feathers-blue-letter-writing-emotion-ink-skin-pens-calligraphy-quills-color-hand-shape-photograph-Sense-close-up-184682.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-  <script src="//unpkg.com/turndown/dist/turndown.js"></script>
+        .center {
+            margin: auto;
+            width: 85%;
+            border: 0;
+        }
 
-  <script src="//cdn.jsdelivr.net/npm/quill-blot-formatter@1.0.5/dist/quill-blot-formatter.min.js"></script>
-  <!--<script src="//benwinding.github.io/quill-html-edit-button/dist/quill.htmlEditButton.min.js"></script>-->
-  <script src="//cdn.jsdelivr.net/npm/quill-html-edit-button@2.0.9/dist/quill.htmlEditButton.min.js"></script>
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            margin-bottom: 10pt;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-  <style>
-    @font-face {
-      font-family: 'Noto Sans MeeteiMayek';
-      src: url('//cdn.jsdelivr.net/gh/virtualvinodh/aksharamukha-notomirror/NotoSansMeeteiMayek-Regular.ttf')
-    }
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
 
-    body {
-      align-content: center;
-      background-image: url('https://www.plektonlabs.com/wp-content/uploads/2021/05/Integration-and-Artificial-Intelligence_-How-Do-They-Go-Hand-in-Hand_.jpg');
-      /* background-image: url('/static/drawing-white-black-hands-love-photography-feathers-blue-letter-writing-emotion-ink-skin-pens-calligraphy-quills-color-hand-shape-photograph-Sense-close-up-184682.jpg'); */
-      /* background-size: cover; */
-      background-size: contain;
-      background-repeat: no-repeat;
-      /* background-position: center center; */
-    }
+        .topnav i {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
 
-    .center {
-      margin: auto;
-      width: 90%;
-      border: 0;
-    }
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
 
-    .topnav {
-      overflow: hidden;
-      background-color: #333;
-      margin-bottom: 10pt;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
 
-    .topnav a {
-      float: left;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-    }
+    <style>
+        #box {
+            /* border: 1px solid red; */
+            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            width: 80%;
+            margin: auto;
+            margin-top: 2%;
+            gap: 20px;
+        }
 
-    .topnav i {
-      float: left;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-    }
+        h1 {
+            text-align: center;
+            /* text-decoration: underline; */
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
 
-    .topnav a:hover {
-      background-color: #ddd;
-      color: black;
-    }
+        span {
+            font-weight: bold;
+        }
 
-    .topnav a.active {
-      background-color: #af814c;
-      color: white;
-    }
+        #inputBox {
+            /* border: 1px solid black; */
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
 
-    .ql-container {
-      font-size: 18px;
-    }
+        #outputBox {
+            /* border: 1px solid black; */
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
 
-    /* To strike the checked items */
-    .ql-editor ul[data-checked="true"] li {
-      text-decoration: line-through;
-    }
+        #mainBox {
+            /* border: 1px solid blue; */
+        }
 
-    .ql-picker-label[data-label="Manipuri - ꯃꯤꯇꯩꯂꯣꯟ"],
-    .ql-picker-item[data-value="mni"] {
-      font-family: Noto Sans MeeteiMayek;
-    }
+        #buttonDiv {
+            /* border: 1px solid red; */
+            /* width: 100px; */
+            /* padding: 10px; */
+            text-align: center;
+            margin: auto;
+        }
 
-    #editor {
-      height: 80%;
-      font-family: Noto Sans MeeteiMayek;
-    }
-  </style>
+        #transliterateBtn {
+            padding: 10px;
+            padding-left: 30px;
+            padding-right: 30px;
+            font-weight: bold;
+            border-radius: 10px;
+            border: 1px;
+            font-size: 16px;
+            /* font-family: 'Courier New', Courier, monospace; */
+            /* background-color: #f7f7f7b3; */
+            background-color: dodgerblue;
+            color: white;
+            transition: transform .3s;
+        }
+
+        #transliterateBtn:hover {
+            cursor: pointer;
+            /* background-color: #f7f7f7d3; */
+            /* font-weight: bolder; */
+            /* font-size: 17px; */
+            transform: scale(1.1);
+        }
+
+        #inputText,
+        #outputText {
+            padding: 15px;
+            outline: none;
+            font-size: 20px;
+            border-radius: 5px;
+            border: none;
+            resize: vertical;
+            font-family: Noto Sans MeeteiMayek;
+        }
+
+        #inputLanguage,
+        #outputLanguage {
+            outline: none;
+            background-color: #f7f7f7b3;
+            font-size: 17px;
+            font-family: 'Noto Sans MeeteiMayek';
+        }
+
+        #inputLanguage::-webkit-scrollbar,
+        #outputLanguage::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        #inputLanguage::-webkit-scrollbar-track,
+        #outputLanguage::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        #inputLanguage::-webkit-scrollbar-thumb,
+        #outputLanguage::-webkit-scrollbar-thumb {
+            background: rgb(169, 168, 168);
+        }
+
+        #inputLanguage::-webkit-scrollbar-thumb:hover,
+        #outputLanguage::-webkit-scrollbar-thumb:hover {
+            background: rgb(169, 168, 168);
+        }
+
+        textarea {
+            background-color: blanchedalmond;
+            opacity: 0.9;
+            position: relative;
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="topnav center">
-    <a class="active" href="#"><b>AI.Tanumanasa</b></a>
-    <i style="float: center;"> Input Tool</i>
-    <!-- <a href="https://github.com/AI4Bharat/Indic-Translit-UI/issues" style="float: right;" target="_blank">Contact</a> -->
-    <!-- <a href="https://github.com/AI4Bharat/Indic-Translit-UI" style="float: right;" target="_blank">Source Code</a> -->
-    <!-- <a href="#" style="float: right;" target="_blank">About</a> -->
-    <a href="converter.html" style="float: right;" target="_blank">Text Converter</a>
-  </div>
+    <div class="topnav center">
+        <a class="active" href="#"><b>AI.Tanumanasa</b></a>
+        <!-- <i style="float: center;">Indic Transliteration</i> -->
+        <!-- <a href="https://github.com/AI4Bharat/Indic-Translit-UI/issues" style="float: right;"target="_blank">Contact</a> -->
+        <!-- <a href="https://github.com/AI4Bharat/Indic-Translit-UI" style="float: right;" target="_blank">Source Code</a> -->
+        <!-- <a href="https://ai4bharat.org/transliteration" style="float: right;" target="_blank">About</a> -->
+        <a href="index.html" style="float: right;" target="_blank">Online Keyboard</a>
+    </div>
 
-  <div class="center" style="background-color: blanchedalmond; opacity: 0.9; position:relative;">
+    <div id="mainBox">
+        <div id="box">
+            <div id="inputBox">
+                <div style="text-align: center; margin-bottom: 5px; font-size: 17px;">
+                    <span>FROM :</span>
+                    <select id="inputLanguage">
+                    </select>
+                </div>
+                <textarea id="inputText" cols="30" rows="8" dir="auto" maxlength="512" spellcheck="false"></textarea>
+            </div>
+            <div id="outputBox">
+                <div style="text-align: center; margin-bottom: 5px; font-size: 17px;">
+                    <span>TO :</span>
+                    <select id="outputLanguage">
+                    </select>
+                </div>
+                <textarea id="outputText" cols="30" rows="8" dir="auto" readonly></textarea>
+            </div>
+        </div>
+        <div id="buttonDiv">
+            <button id="transliterateBtn">TRANSLITERATE</button>
+        </div>
+    </div>
 
-    <div id="editor"></div>
-    <script src="./js/utils.js"></script>
-    <script src="./js/exporter.js"></script>
-    <script src="./js/editor.js"></script>
-  </div>
 </body>
 
 </html>
+
+<script>
+    /* UTILS */
+
+    function storeLanguagesLocally(supportedLanguagesResponse) {
+        languageMap = {};
+        languageMap["English script"] = "en";
+        for (i = 0; i < supportedLanguagesResponse.length; i++) {
+            languageMap[supportedLanguagesResponse[i]["DisplayName"]] = supportedLanguagesResponse[i]["Identifier"]
+        }
+        localStorage.setItem('lang_map', JSON.stringify(languageMap));
+        return languageMap;
+    }
+
+    function retrieveLanguagesFromLocalStorage() {
+        const lang_map = localStorage.getItem('lang_map');
+        if (lang_map) {
+            return JSON.parse(lang_map);
+        } else {
+            alert('ERROR: Unable to load list of languages!');
+            return null;
+        }
+    }
+</script>
+
+<script>
+    // Global objects
+    var $inputLanguage = document.getElementById("inputLanguage");
+    var $outputLanguage = document.getElementById("outputLanguage");
+    var $inputText = document.getElementById("inputText");
+    var $outputText = document.getElementById("outputText");
+    $transliterateBtn = document.getElementById("transliterateBtn");
+
+    // Language selection handlers
+    getSupportedLanguages().then(response => {
+        var languageMap = null;
+        // Get list of input langs
+        if (response) {
+            languageMap = storeLanguagesLocally(response);
+        } else {
+            languageMap = retrieveLanguagesFromLocalStorage();
+        }
+
+        // Set list of input langs
+        Object.keys(languageMap).forEach(function (langName) {
+            var option = document.createElement("option");
+            option.text = langName;
+            option.value = languageMap[langName];
+            $inputLanguage.appendChild(option);
+        });
+
+        // Event-handler to decide allowed output langs based on input lang
+        $inputLanguage.addEventListener('change', function () {
+            var prevInputLangId = localStorage.getItem('input_lang_id');
+            currInputLangId = this.value;
+            localStorage.setItem('input_lang_id', currInputLangId);
+            if (currInputLangId != "en" && prevInputLangId && prevInputLangId != "en") {
+                // Nothing to change if we switch from Indic to Indic
+                return;
+            }
+
+            $outputLanguage.innerHTML = ""; // Clear already set options
+            if (currInputLangId == "en") {
+                // Set Indic languages for ouput
+                languageMap = retrieveLanguagesFromLocalStorage();
+                Object.keys(languageMap).forEach(function (langName) {
+                    langCode = languageMap[langName];
+                    if (langCode != "en") {
+                        var option = document.createElement("option");
+                        option.text = langName;
+                        option.value = langCode;
+                        $outputLanguage.appendChild(option);
+                    }
+                });
+
+                // Restore previously selected output lang; if not, set default
+                var outputLangId = localStorage.getItem('output_lang_id');
+                if (!outputLangId || outputLangId == "en") {
+                    outputLangId = "hi";
+                }
+                $outputLanguage.value = outputLangId;
+            } else {
+                // Allow only roman output
+                var option = document.createElement("option");
+                option.text = "English script";
+                option.value = "en";
+                $outputLanguage.appendChild(option);
+            }
+        });
+
+        // Restore previously selected input lang; if not, set default
+        var prevInputLangId = localStorage.getItem('input_lang_id');
+        localStorage.removeItem('input_lang_id');
+        $inputLanguage.value = prevInputLangId ? prevInputLangId : "en";
+        $inputLanguage.dispatchEvent(new Event('change')); // Set output langs initially
+    });
+
+    // Handler for transliteration
+    $transliterateBtn.addEventListener("click", function () {
+        outputLangId = $outputLanguage.value;
+        if (outputLangId != "en") {
+            localStorage.setItem('output_lang_id', outputLangId);
+        }
+        getTransliterationForWholeText($inputLanguage.value, outputLangId, $inputText.value)
+            .then(transliteratedText => {
+                $outputText.value = transliteratedText;
+            });
+    });
+</script>
+
+<!-- Credits: https://akashkmt.github.io/Translator-App/ -->
