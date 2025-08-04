@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI - Tanumanasa</title>
+
+    <link href="static//tanumanasa.jpg" rel="icon" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      @font-face {
+        font-family: "Noto Sans MeeteiMayek";
+        src: url("//cdn.jsdelivr.net/gh/virtualvinodh/aksharamukha-notomirror/NotoSansMeeteiMayek-Regular.ttf");
+      }
+
+      body {
+        /* align-content: center; */
+        /* background-image: url('//get.wallhere.com/photo/drawing-white-black-hands-love-photography-feathers-blue-letter-writing-emotion-ink-skin-pens-calligraphy-quills-color-hand-shape-photograph-Sense-close-up-184682.jpg'); */
+        background-image: url("https://www.plektonlabs.com/wp-content/uploads/2021/05/Integration-and-Artificial-Intelligence_-How-Do-They-Go-Hand-in-Hand_.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        color: white;
+      }
+
+      body::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: black;
+        opacity: 0.5;
+        z-index: -1;
+      }
+
+      .center {
+        margin: auto;
+        width: 85%;
+        border: 0;
+      }
+
+      .topnav {
+        overflow: hidden;
+        background-color: #333;
+        margin-bottom: 10pt;
+        margin-top: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .topnav i {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .topnav a.active {
+        background-color: #4caf50;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topnav center">
+      <a class="active" href="#"><b>AI.Tanumanasa</b></a>
+      <!-- <i style="float: center;">Indic Transliteration</i> -->
+      <!-- <a href="https://github.com/AI4Bharat/Indic-Translit-UI/issues" style="float: right;"target="_blank">Contact</a> -->
+      <!-- <a href="https://github.com/AI4Bharat/Indic-Translit-UI" style="float: right;" target="_blank">Source Code</a> -->
+      <!-- <a href="https://ai4bharat.org/transliteration" style="float: right;" target="_blank">About</a> -->
+      <a href="converter.html" style="float: right" target="_blank">Online Keyboard</a>
+      <a href="translate.html" style="float: right" target="_blank">Text Converter</a>
+    </div>
+
+    <div class="translatediv">
+      <h1 class="translateheading">Translate in real-time across various Indian Languages!</h1>
+
+      <div class="translateformdiv">
+        <label for="sourceLanguage">Select Source Language:</label>
+        <select id="sourceLanguage" name="sourceLanguage">
+          <option value="">Select Language</option>  
+          <option value="en">English</option>
+          <option value="as">Assamese</option>
+          <option value="ba">Bangla</option>
+          <option value="brx">Boro</option>
+          <option value="en">English</option>
+          <option value="doi">Dogri</option>
+          <option value="gom">Goan-Konkani</option>
+          <option value="gu">Gujarati</option>
+          <option value="hi">Hindi</option>
+          <option value="ka">Kannada</option>
+          <option value="ks">Kashmiri (Arabic)</option>
+          <option value="ks_Deva">Kashmiri (Devanagari)</option>
+          <option value="mai">Maithili</option>
+          <option value="ml">Malayalam</option>
+          <option value="mni">Manipuri (Meitei)</option>
+          <option value="mni_Beng">Manipuri (Bengali)</option>
+          <option value="mr">Marathi</option>
+          <option value="ne">Nepali</option>
+          <option value="or">Odia</option>
+          <option value="pa">Punjabi</option>
+          <option value="sa">Sanskrit</option>
+          <option value="sat">Santali</option>
+          <option value="sd">Sindhi (Arabic)</option>
+          <option value="sd_Deva">Sindhi (Devanagari)</option>
+          <option value="ta">Tamil</option>
+          <option value="te">Telugu</option>
+          <option value="ur">Urdu</option>
+        </select>
+
+        <br />
+
+        <label for="targetLanguage">Select Target Language:</label>
+        <select id="targetLanguage" name="targetLanguage">
+            <option value="">Select Language</option>  
+            <option value="en">English</option>
+            <option value="as">Assamese</option>
+            <option value="ba">Bangla</option>
+            <option value="brx">Boro</option>
+            <option value="en">English</option>
+            <option value="doi">Dogri</option>
+            <option value="gom">Goan-Konkani</option>
+            <option value="gu">Gujarati</option>
+            <option value="hi">Hindi</option>
+            <option value="ka">Kannada</option>
+            <option value="ks">Kashmiri (Arabic)</option>
+            <option value="ks_Deva">Kashmiri (Devanagari)</option>
+            <option value="mai">Maithili</option>
+            <option value="ml">Malayalam</option>
+            <option value="mni">Manipuri (Meitei)</option>
+            <option value="mni_Beng">Manipuri (Bengali)</option>
+            <option value="mr">Marathi</option>
+            <option value="ne">Nepali</option>
+            <option value="or">Odia</option>
+            <option value="pa">Punjabi</option>
+            <option value="sa">Sanskrit</option>
+            <option value="sat">Santali</option>
+            <option value="sd">Sindhi (Arabic)</option>
+            <option value="sd_Deva">Sindhi (Devanagari)</option>
+            <option value="ta">Tamil</option>
+            <option value="te">Telugu</option>
+            <option value="ur">Urdu</option>
+          
+        </select>
+
+      </div>
+
+      <button
+      class="translatebtn"
+      type="button"
+      id="submitbtn"
+      onclick="checkclick()"
+    >
+      Translate
+    </button>
+
+      <div class="translateinputdiv">
+        <div class="teaxtareadiv">
+          <label for="sourceText">Source Text:</label>
+
+          <textarea
+            placeholder="Enter your text here (up to 512 words)"
+            name="sourceText"
+            id="sourceText"
+            cols="50"
+            rows="20"
+            oninput="countWords()"
+            required
+          >
+          </textarea>
+
+          <div id="wordCount">0/512</div>
+        </div>
+
+        <div class="teaxtareadiv">
+          <label for="sourceText">Output Text:</label>
+
+          <textarea name="result" id="result" cols="50" rows="20"> </textarea>
+        </div>
+      </div>
+
+     
+    </div>
+
+    <script>
+      function countWords() {
+        const sourceText = document.getElementById("sourceText").value;
+        const wordCount = sourceText
+          .split(/\s+/)
+          .filter((word) => word !== "").length;
+
+        document.getElementById("wordCount").textContent = `${wordCount}/512`;
+      }
+
+      function checkclick() {
+        const submitButton = document.getElementById("submitbtn");
+
+        if (submitButton) {
+          translate();
+        }
+      }
+
+      async function callTranslationAPI(payload) {
+        const apiUrl =
+          "https://demo-api.models.ai4bharat.org/inference/translation/v2";
+
+        try {
+          const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const result = await response.json();
+          console.log(result);
+          return result;
+        } catch (error) {
+          console.error("Error calling the API:", error.message);
+          return null;
+        }
+      }
+
+      async function translate() {
+
+        const resultDiv = document.getElementById("result");
+        resultDiv.textContent = "";
+
+        const sourceLanguageSelect = document.getElementById("sourceLanguage");
+        const targetLanguageSelect = document.getElementById("targetLanguage");
+        const sourceText = document.getElementById("sourceText").value;
+
+        const payload = {
+          config: {
+            serviceId: "",
+            language: {
+              sourceLanguage: sourceLanguageSelect.value,
+              targetLanguage: targetLanguageSelect.value,
+              targetScriptCode: null,
+              sourceScriptCode: null,
+            },
+          },
+          controlConfig: {
+            dataTracking: true,
+          },
+          input: [{ source: sourceText }],
+        };
+
+        callTranslationAPI(payload).then((result) => {
+          const resultDiv = document.getElementById("result");
+          if (result !== null) {
+            resultDiv.textContent = `${result.output[0].target}`;
+          } else {
+            resultDiv.textContent = "Error in translation.";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
